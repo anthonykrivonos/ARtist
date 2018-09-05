@@ -1,0 +1,25 @@
+{
+  "name": "UIScreenExtension",
+  "version": "0.0.2",
+  "summary": "An extension to UIScreen that offers information about the pixel density (or point density) of iPhones and iPads.",
+  "description": "This extension offers information about the pixel/point density measured in either pixels/points per centimeter/inch (PPI/PPCM).\nThis can for example be used to compute the screen dimension, draw a ruler or to show ECG graph on the iPhone's screen.",
+  "homepage": "https://github.com/marchv/UIScreenExtension",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Jens Schwarzer": "jens.schwarzer@marchv.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/marchv/UIScreenExtension.git",
+    "tag": "0.0.2"
+  },
+  "source_files": [
+    "UIScreenExtension",
+    "UIScreenExtension/**/*.{h,swift}"
+  ]
+}

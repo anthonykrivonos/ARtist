@@ -10,35 +10,38 @@ import Foundation
 import UIKit
 import ARKit
 
-class BrushTypeModel {
-      public let lightingModel: String = "physicallyBased"
-      
-      public private(set) var name:String
-      public private(set) var roughness:Float
-      public private(set) var shininess:Float
-      
-      init(_ name:String, _ roughness:Float, _ shininess:Float) {
-            self.name = name
-            self.roughness = roughness
-            self.shininess = shininess
-      }
-}
-
-class BrushModel {
-      
-      // Divisor for sizes to account for tiny brush sizes - 1000 is the best value
-      private let sizeOffset:Float = 1000
-      
-      public var size:Float
-      public var color:UIColor
-      public var opacity:Float
-      public var type:BrushTypeModel
-      
-      init(size:Float, color:UIColor, opacity:Float, type:BrushTypeModel) {
-            self.size = size/sizeOffset
-            self.color = color
-            self.opacity = opacity
-            self.type = type
-      }
-      
+class BrushModel:NSObject, NSCoding {
+    
+    // Divisor for sizes to account for tiny brush sizes - 10000 is the best value
+    private let SIZE_OFFSET:Float = 5200
+    
+    public var size:Float
+    public var color:UIColor
+    public var opacity:Float
+    
+    init(size:Float, color:UIColor, opacity:Float) {
+        self.size = size/SIZE_OFFSET
+        self.color = color
+        self.opacity = opacity
+    }
+    
+    func resize(toValue value:Int) {
+        self.size = Float(value)/SIZE_OFFSET
+    }
+    
+    //
+    // Encoding for storage
+    //
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(size, forKey: "size")
+        aCoder.encode(color, forKey: "color")
+        aCoder.encode(opacity, forKey: "opacity")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.size = aDecoder.decodeFloat(forKey: "size")
+        self.opacity = aDecoder.decodeFloat(forKey: "opacity")
+        self.color = aDecoder.decodeObject(forKey: "color") as? UIColor ?? UIColor.clear
+    }
 }

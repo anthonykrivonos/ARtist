@@ -7,6 +7,11 @@ def pod_list
       pod 'ColorSlider'
       pod 'Hero'
       pod 'fluid-slider'
+      pod 'SideMenu'
+      pod 'ChromaColorPicker'
+      pod 'EzPopup'
+      pod 'SwiftEntryKit'
+      pod 'UIScreenExtension', :git => 'https://github.com/marchv/UIScreenExtension'
 end
 
 target 'ARtist' do

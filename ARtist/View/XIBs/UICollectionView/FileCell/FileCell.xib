@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FileCell" id="gTV-IL-0wX" customClass="FileCell" customModule="ARtist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="108" height="158"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="108" height="158"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eM2-zV-AET">
+                        <rect key="frame" x="4" y="4" width="100" height="150"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-mg-GaF">
+                        <rect key="frame" x="4" y="4" width="100" height="150"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O76-0L-LCb" userLabel="Option View">
+                                <rect key="frame" x="0.0" y="25" width="100" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnT-BB-zly" userLabel="Load Button">
+                                        <rect key="frame" x="4" y="19.5" width="92" height="64.5"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.78823529410000004" green="0.79215686269999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="" image="Upload Icon"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Load" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8C-KZ-4hS">
+                                        <rect key="frame" x="4" y="84" width="92" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="omT-cp-vgp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" red="0.78823529410000004" green="0.79215686269999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILE NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGq-bp-wmd">
+                                        <rect key="frame" x="4" y="0.0" width="92" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <color key="textColor" red="0.78823529410000004" green="0.79215686269999996" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SGq-bp-wmd" secondAttribute="trailing" constant="4" id="0uO-hT-oRj"/>
+                                    <constraint firstItem="e8C-KZ-4hS" firstAttribute="leading" secondItem="O76-0L-LCb" secondAttribute="leading" constant="4" id="1Dl-uF-U09"/>
+                                    <constraint firstAttribute="bottom" secondItem="e8C-KZ-4hS" secondAttribute="bottom" id="B9M-dM-1QG"/>
+                                    <constraint firstAttribute="height" constant="100" id="CYx-AB-YzU"/>
+                                    <constraint firstItem="tnT-BB-zly" firstAttribute="top" secondItem="SGq-bp-wmd" secondAttribute="bottom" id="CqQ-2h-4dJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="e8C-KZ-4hS" secondAttribute="trailing" constant="4" id="GyH-RO-HUr"/>
+                                    <constraint firstItem="tnT-BB-zly" firstAttribute="leading" secondItem="O76-0L-LCb" secondAttribute="leading" constant="4" id="LXV-fb-5oy"/>
+                                    <constraint firstItem="e8C-KZ-4hS" firstAttribute="top" secondItem="tnT-BB-zly" secondAttribute="bottom" id="N5Z-Ri-7qZ"/>
+                                    <constraint firstItem="SGq-bp-wmd" firstAttribute="leading" secondItem="O76-0L-LCb" secondAttribute="leading" constant="4" id="nme-0n-TaS"/>
+                                    <constraint firstItem="SGq-bp-wmd" firstAttribute="top" secondItem="O76-0L-LCb" secondAttribute="top" id="qYV-zj-aUl"/>
+                                    <constraint firstAttribute="trailing" secondItem="tnT-BB-zly" secondAttribute="trailing" constant="4" id="z8U-lE-byB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1450980392" green="0.1529411765" blue="0.2156862745" alpha="0.29853381849999999" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="O76-0L-LCb" firstAttribute="leading" secondItem="lXV-mg-GaF" secondAttribute="leading" id="3rC-65-M2x"/>
+                            <constraint firstAttribute="trailing" secondItem="O76-0L-LCb" secondAttribute="trailing" id="FEh-PV-tyb"/>
+                            <constraint firstItem="O76-0L-LCb" firstAttribute="centerY" secondItem="lXV-mg-GaF" secondAttribute="centerY" id="SwP-xe-fuK"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="lXV-mg-GaF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="8ed-Bn-1oE"/>
+                <constraint firstItem="lXV-mg-GaF" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="MoX-ZC-5S2"/>
+                <constraint firstItem="lXV-mg-GaF" firstAttribute="leading" secondItem="eM2-zV-AET" secondAttribute="leading" id="bwt-3j-pIf"/>
+                <constraint firstItem="lXV-mg-GaF" firstAttribute="bottom" secondItem="eM2-zV-AET" secondAttribute="bottom" id="dPw-4t-p8I"/>
+                <constraint firstItem="lXV-mg-GaF" firstAttribute="trailing" secondItem="eM2-zV-AET" secondAttribute="trailing" id="gEt-Ov-oXh"/>
+                <constraint firstItem="lXV-mg-GaF" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="pCG-FX-FgL"/>
+                <constraint firstItem="lXV-mg-GaF" firstAttribute="top" secondItem="eM2-zV-AET" secondAttribute="top" id="s0K-Qa-PUA"/>
+                <constraint firstItem="lXV-mg-GaF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="yFS-uY-Y49"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="fileNameLabel" destination="SGq-bp-wmd" id="kfB-Vc-jjK"/>
+                <outlet property="overlayView" destination="lXV-mg-GaF" id="bCJ-hg-ynv"/>
+                <outlet property="previewView" destination="eM2-zV-AET" id="D6N-uk-f4P"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Upload Icon" width="38" height="44"/>
+    </resources>
+</document>

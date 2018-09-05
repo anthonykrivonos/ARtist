@@ -230,3 +230,11 @@ func SCNVector3Project(vectorToProject: SCNVector3, projectionVector: SCNVector3
 	let v: SCNVector3 = projectionVector * scale
 	return v
 }
+
+func SCNVector3Midpoint(vectorStart: SCNVector3, vectorEnd: SCNVector3) -> SCNVector3 {
+      return SCNVector3Make((vectorEnd.x - vectorStart.x)/2, (vectorEnd.y - vectorStart.y)/2, (vectorEnd.z - vectorStart.z)/2)
+}
+
+func SCNVector3Mean(vectorStart: SCNVector3, vectorEnd: SCNVector3) -> SCNVector3 {
+      return SCNVector3Make((vectorEnd.x + vectorStart.x)/2, (vectorEnd.y + vectorStart.y)/2, (vectorEnd.z + vectorStart.z)/2)
+}

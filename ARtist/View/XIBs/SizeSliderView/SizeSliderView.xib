@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SizeSliderView" customModule="ARtist" customModuleProvider="target">
+            <connections>
+                <outlet property="sliderBubbleView" destination="Opx-NN-FDG" id="g3c-My-0id"/>
+                <outlet property="sliderBubbleViewTopConstraint" destination="44r-Jv-ZO1" id="xBB-pH-Tyv"/>
+                <outlet property="sliderView" destination="aJC-Zh-gR7" id="oMo-qD-wGg"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="26" height="230"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Opx-NN-FDG">
+                    <rect key="frame" x="0.0" y="0.0" width="26" height="14"/>
+                    <color key="backgroundColor" red="0.78823529411764703" green="0.792156862745098" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="L1J-HT-9Jx"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" red="0.14509803921568626" green="0.15294117647058825" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJC-Zh-gR7" userLabel="Slider View">
+                    <rect key="frame" x="0.0" y="0.0" width="26" height="230"/>
+                    <color key="backgroundColor" red="0.78823529411764703" green="0.792156862745098" blue="0.85098039215686272" alpha="0.30110231164383561" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.0" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Opx-NN-FDG" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="0oU-YL-9VZ"/>
+                <constraint firstItem="Opx-NN-FDG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="44r-Jv-ZO1"/>
+                <constraint firstItem="aJC-Zh-gR7" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="9qO-XO-L1x"/>
+                <constraint firstItem="aJC-Zh-gR7" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="GmA-cB-52f"/>
+                <constraint firstItem="Opx-NN-FDG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="eh1-Iv-OwW"/>
+                <constraint firstItem="aJC-Zh-gR7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="lz8-Wh-Cuk"/>
+                <constraint firstItem="aJC-Zh-gR7" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="vPN-Jd-g3h"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-141" y="-165"/>
+        </view>
+    </objects>
+</document>

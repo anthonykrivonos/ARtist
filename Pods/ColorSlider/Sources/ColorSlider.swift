@@ -194,10 +194,13 @@ extension ColorSlider {
 				centerPreview(at: .zero)
 				
 			// Adjust preview view size if needed
+                        
+                  // MARK: EDITED FROM ORIGINAL
 			case .horizontal where autoresizesSubviews:
-				preview.bounds.size = CGSize(width: 25, height: bounds.height + 10)
+				preview.bounds.size = CGSize(width: bounds.height, height: bounds.height)
 			case .vertical where autoresizesSubviews:
-				preview.bounds.size = CGSize(width: bounds.width + 10, height: 25)
+				preview.bounds.size = CGSize(width: bounds.width, height: bounds.width)
+                  //
 				
 			default:
 				break
