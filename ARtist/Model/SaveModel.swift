@@ -61,7 +61,7 @@ class SaveModel:NSObject, NSCoding {
         self.thumbnail = aDecoder.decodeObject(forKey: "thumbnail") as! UIImage
         self.screenshots = aDecoder.decodeObject(forKey: "screenshots") as? [UIImage] ?? []
         self.drawing = aDecoder.decodeObject(forKey: "drawing") as! DrawingModel
-        self.originalSaveDate = aDecoder.decodeObject(forKey: "originalSaveDate") as! Date
+        self.originalSaveDate = aDecoder.decodeObject(forKey: "originalSaveDate") as? Date
         self.saveDate = aDecoder.decodeObject(forKey: "saveDate") as? Date
         self.overwriteCount = aDecoder.decodeInteger(forKey: "overwriteCount")
     }

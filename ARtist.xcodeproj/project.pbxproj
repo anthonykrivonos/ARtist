@@ -22,8 +22,6 @@
 		927A54D8213E2E4C003DD480 /* ColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A54D7213E2E4C003DD480 /* ColorProvider.swift */; };
 		927A54DB213E3939003DD480 /* DetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A54DA213E3939003DD480 /* DetailCardView.swift */; };
 		927A54DD213E3941003DD480 /* DetailCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927A54DC213E3941003DD480 /* DetailCardView.xib */; };
-		927A54E1213E40DC003DD480 /* DetailSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A54DF213E40DC003DD480 /* DetailSectionHeaderView.swift */; };
-		927A54E2213E40DC003DD480 /* DetailSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927A54E0213E40DC003DD480 /* DetailSectionHeaderView.xib */; };
 		927A54E7213EC34B003DD480 /* LargeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A54E5213EC34B003DD480 /* LargeButtonCell.swift */; };
 		927A54E8213EC34B003DD480 /* LargeButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 927A54E6213EC34B003DD480 /* LargeButtonCell.xib */; };
 		927A54EC213EC4A7003DD480 /* StatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927A54EA213EC4A7003DD480 /* StatisticsCell.swift */; };
@@ -70,8 +68,6 @@
 		927A54D7213E2E4C003DD480 /* ColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorProvider.swift; sourceTree = "<group>"; };
 		927A54DA213E3939003DD480 /* DetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardView.swift; sourceTree = "<group>"; };
 		927A54DC213E3941003DD480 /* DetailCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCardView.xib; sourceTree = "<group>"; };
-		927A54DF213E40DC003DD480 /* DetailSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSectionHeaderView.swift; sourceTree = "<group>"; };
-		927A54E0213E40DC003DD480 /* DetailSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailSectionHeaderView.xib; sourceTree = "<group>"; };
 		927A54E5213EC34B003DD480 /* LargeButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButtonCell.swift; sourceTree = "<group>"; };
 		927A54E6213EC34B003DD480 /* LargeButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeButtonCell.xib; sourceTree = "<group>"; };
 		927A54EA213EC4A7003DD480 /* StatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCell.swift; sourceTree = "<group>"; };
@@ -247,15 +243,6 @@
 			path = DetailCardView;
 			sourceTree = "<group>";
 		};
-		927A54DE213E40C8003DD480 /* DetailSectionHeaderView */ = {
-			isa = PBXGroup;
-			children = (
-				927A54DF213E40DC003DD480 /* DetailSectionHeaderView.swift */,
-				927A54E0213E40DC003DD480 /* DetailSectionHeaderView.xib */,
-			);
-			path = DetailSectionHeaderView;
-			sourceTree = "<group>";
-		};
 		927A54E3213EC324003DD480 /* UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,7 +295,6 @@
 			children = (
 				92A3BB3F213F393900E00BD6 /* UITableView */,
 				927A54E3213EC324003DD480 /* UICollectionView */,
-				927A54DE213E40C8003DD480 /* DetailSectionHeaderView */,
 				927A54D9213E391C003DD480 /* DetailCardView */,
 				9290E68A213CD0D500DBC62E /* SizeSliderView */,
 			);
@@ -468,7 +454,6 @@
 				92A3BB43213F394B00E00BD6 /* DetailDynamicCell.xib in Resources */,
 				927A54DD213E3941003DD480 /* DetailCardView.xib in Resources */,
 				927A54D5213E26F4003DD480 /* ColorController.xib in Resources */,
-				927A54E2213E40DC003DD480 /* DetailSectionHeaderView.xib in Resources */,
 				927A54ED213EC4A7003DD480 /* StatisticsCell.xib in Resources */,
 				92717C96205423C0008274C6 /* Main.storyboard in Resources */,
 			);
@@ -487,7 +472,6 @@
 				"${BUILT_PRODUCTS_DIR}/ChromaColorPicker/ChromaColorPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/ColorSlider/ColorSlider.framework",
 				"${BUILT_PRODUCTS_DIR}/EzPopup/EzPopup.framework",
-				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
@@ -500,7 +484,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChromaColorPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ColorSlider.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EzPopup.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
@@ -557,7 +540,6 @@
 				927A54F1213EC6B8003DD480 /* ScreenshotCell.swift in Sources */,
 				926443162090C92400DD9BFF /* DrawingModel.swift in Sources */,
 				927A54E7213EC34B003DD480 /* LargeButtonCell.swift in Sources */,
-				927A54E1213E40DC003DD480 /* DetailSectionHeaderView.swift in Sources */,
 				927A54D8213E2E4C003DD480 /* ColorProvider.swift in Sources */,
 				9290E691213CDF8C00DBC62E /* GradientProvider.swift in Sources */,
 				927A54DB213E3939003DD480 /* DetailCardView.swift in Sources */,

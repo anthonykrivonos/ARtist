@@ -66,8 +66,7 @@ class CanvasController: UIViewController, ARSCNViewDelegate {
      // Current file being edited
      var currentFile:SaveModel? {
           didSet {
-               detailCardView.currentSave = currentFile
-               detailCardView.updateDetails()
+               updateDetailCardView()
           }
      }
      
@@ -240,6 +239,11 @@ class CanvasController: UIViewController, ARSCNViewDelegate {
           })
      }
      
+     func updateDetailCardView() {
+          hideDetailCardView()
+          detailCardView.updateDetails()
+     }
+     
      //
      // Overlay view displaying
      //
@@ -318,6 +322,76 @@ class CanvasController: UIViewController, ARSCNViewDelegate {
           self.brush?.color = color
           self.cursorProvider.changeCursorColor(color: color)
           self.brushColorButton.backgroundColor = color
+     }
+     
+     
+     //
+     // Save/Load Functions
+     //
+     
+     /// Saves a model and returns the updated model
+     func save(save:SaveModel) -> SaveModel {
+          var storedDrawings:StorageModel? = StorageProvider.get(key: SaveProvider.LOCAL_SAVED_DRAWINGS_KEY, valueType:StorageModel.self) as? StorageModel
+          
+          if storedDrawings == nil {
+               storedDrawings = StorageModel()
+          }
+          
+          _ = storedDrawings?.save(save: save)
+          
+          _ = StorageProvider.set(key: SaveProvider.LOCAL_SAVED_DRAWINGS_KEY, val: storedDrawings!)
+          
+          detailCardView.storage = storedDrawings!
+          
+          currentFile = save
+          updateDetailCardView()
+          
+          return save
+     }
+     
+     /// Prompts a model to be saved and returns the save in a completion hanlder
+     func promptSave(completionHandler:((SaveModel)->Void)? = nil) {
+          let thumbnail:UIImage = (canvasProvider.captureSnapshot(saveToAlbum: false)?.squared)!
+          EntryProvider().showForm(title: "Save File", fields: [EntryFormField(placeholder: "Untitled", textColor: Color.primary, placeholderColor: Color.gray, isSecureText: false, icon: #imageLiteral(resourceName: "Upload Icon.png").resizeWith(width: 25)?.maskWithColor(color: Color.gray))], button: EntryButton(text: "Save", action: { (output:Any?) in
+               if let outputDict = output as? [String:String] {
+                    let savedDrawing = SaveModel(fileName: outputDict["Untitled"]!, thumbnail: thumbnail, screenshots: self.currentFile?.getScreenshots() ?? [], drawing: self.canvasProvider.drawList, saveDate: Date())
+                    if completionHandler != nil {
+                         completionHandler!(savedDrawing)
+                    } else {
+                         _ = self.save(save: savedDrawing)
+                    }
+                    self.updateDetailCardView()
+               }
+               return
+          }, textColor: Color.primary, backgroundColor: Color.offWhite), position: .center)
+     }
+     
+     /// Clears the current save
+     func clear() {
+          currentFile = SaveModel(fileName: "", thumbnail: UIImage(), screenshots: [], drawing: canvasProvider.drawList, saveDate: nil)
+          canvasProvider.clear()
+          updateDetailCardView()
+     }
+     
+     /// Load the given saved model
+     func load(file:SaveModel) {
+          canvasProvider.loadDrawing(drawing: file.getSavedDrawing())
+          updateDetailCardView()
+     }
+     
+     /// Delete the given file
+     func delete(file:SaveModel) {
+          var storedDrawings:StorageModel? = StorageProvider.get(key: SaveProvider.LOCAL_SAVED_DRAWINGS_KEY, valueType:StorageModel.self) as? StorageModel
+          if storedDrawings == nil {
+               storedDrawings = StorageModel()
+          }
+          _ = storedDrawings?.remove(save: file)
+          
+          _ = StorageProvider.set(key: SaveProvider.LOCAL_SAVED_DRAWINGS_KEY, val: storedDrawings!)
+          
+          detailCardView.storage = storedDrawings!
+          
+          clear()
      }
      
      //
@@ -466,7 +540,6 @@ class CanvasController: UIViewController, ARSCNViewDelegate {
                onCapture(snapshot: snapshot)
           }
      }
-     
      
      // Eraser button
      @IBAction func eraserPressed(_ sender: Any) {

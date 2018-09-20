@@ -5,7 +5,6 @@ use_frameworks!
 
 def pod_list
       pod 'ColorSlider'
-      pod 'Hero'
       pod 'fluid-slider'
       pod 'SideMenu'
       pod 'ChromaColorPicker'

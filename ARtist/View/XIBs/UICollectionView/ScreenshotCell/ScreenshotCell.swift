@@ -10,6 +10,9 @@ import UIKit
 
 class ScreenshotCell: UICollectionViewCell {
     
+    /// Canvas Controller with drawing
+    var canvasController:CanvasController!
+    
     // MARK: - IBOutlets
     
     /// Image view displaying the screenshot
@@ -22,7 +25,14 @@ class ScreenshotCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        screenshotView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showOverlay)))
+        
+        let showRecognizer = UITapGestureRecognizer(target: self, action: #selector(showOverlay))
+        showRecognizer.delegate = self
+        screenshotView.addGestureRecognizer(showRecognizer)
+        
+        let hideRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideOverlay))
+        hideRecognizer.delegate = self
+        overlayView.addGestureRecognizer(hideRecognizer)
     }
     
     /// Initialize the screenshotCell with an image
@@ -56,6 +66,16 @@ class ScreenshotCell: UICollectionViewCell {
     
     @IBAction func didTapDelete(_ sender: Any) {
         
+    }
+    
+}
+
+// MARK: - UIGestureRecognizer
+
+extension ScreenshotCell:UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
 }

@@ -19,7 +19,7 @@ class CanvasProvider: NSObject {
     public var worldOffset:Float
     
     // Every node in the current stroke
-    public var strokeList:StrokeModel!
+    public var strokeList:StrokeModel?
     
     // List of strokes in the canvas
     public var drawList:DrawingModel = DrawingModel()
@@ -244,8 +244,10 @@ class CanvasProvider: NSObject {
         //canvasView.scene.rootNode.addChildNode(node!)
         
         // Append the node to the current list of nodes being drawn on this stroke
-        _ = strokeList.push(node: node!)
-        strokeList.parent(node: node!)
+        if strokeList != nil {
+            _ = strokeList!.push(node: node!)
+            strokeList!.parent(node: node!)
+        }
         
         // Return the node
         return node!
@@ -280,8 +282,10 @@ class CanvasProvider: NSObject {
         // Overwrite the draw list
         self.drawList = drawing
         // Parent every node from the new draw list
-        for i in 0...drawing.getCount() - 1 {
-            self.drawList.getAtIndex(index: i)?.parent()
+        if drawing.getCount() > 0 {
+            for i in 0...drawing.getCount() - 1 {
+                self.drawList.getAtIndex(index: i)?.parent()
+            }
         }
     }
     
@@ -324,7 +328,6 @@ class CanvasProvider: NSObject {
                 }
             }
         }
-        updateDrawList()
         return eraseList
     }
     
@@ -357,16 +360,7 @@ class CanvasProvider: NSObject {
                 }
             }
         }
-        updateDrawList()
         return recolorList
-    }
-    
-    /// Updates the length and color arrays of the drawList
-    func updateDrawList() {
-        QueueProvider(label: "com.AnthonyKrivonos.ARtist.DQ.UpdateDrawList").execute(actions: {
-            self.drawList.updateLength()
-            self.drawList.updateColors()
-        })
     }
     
     //
@@ -374,27 +368,31 @@ class CanvasProvider: NSObject {
     //
     
     func clear() {
+        guard self.drawList.getCount() > 0 else { return }
         for i in 0...self.drawList.getCount() - 1 {
             self.drawList.getAtIndex(index: i)?.unparent()
         }
-        _ = self.undoList.clear()
-        _ = self.strokeList.clear()
-        _ = self.drawList.clear()
-        updateDrawList()
+        _ = undoList.clear()
+        _ = drawList.clear()
+        if strokeList != nil {
+            _ = strokeList!.clear()
+        }
     }
     
     func unparentAndClear() {
-        _ = self.undoList.clear()
-        _ = self.strokeList.clear()
-        _ = self.drawList.clear()
-        updateDrawList()
+        _ = undoList.clear()
+        _ = drawList.clear()
+        if strokeList != nil {
+            _ = strokeList!.clear()
+        }
     }
     
     func appendCurrentList() {
-        _ = drawList.push(stroke: strokeList)
-        _ = undoList.clear()
-        _ = strokeList.clear()
-        updateDrawList()
+        if strokeList != nil {
+            _ = drawList.push(stroke: strokeList!)
+            _ = strokeList!.clear()
+            _ = undoList.clear()
+        }
     }
     
     func undo() -> StrokeModel? {
@@ -403,7 +401,6 @@ class CanvasProvider: NSObject {
             _ = undoList.push(stroke: removedNodes!)
             removedNodes?.unparent()
         }
-        updateDrawList()
         return removedNodes
     }
     
@@ -413,7 +410,6 @@ class CanvasProvider: NSObject {
             _ = drawList.push(stroke: undoneNodes!)
             undoneNodes?.parent()
         }
-        updateDrawList()
         return undoneNodes
     }
     

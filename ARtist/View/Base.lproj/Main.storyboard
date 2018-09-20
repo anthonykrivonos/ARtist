@@ -107,6 +107,12 @@
                                     <constraint firstItem="7sX-Xy-dsq" firstAttribute="top" secondItem="VW8-Sj-8Bs" secondAttribute="bottom" id="qKy-wa-q0y"/>
                                     <constraint firstAttribute="trailing" secondItem="BBf-fx-kmB" secondAttribute="trailing" constant="4" id="sv4-cL-28d"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="roundedCorners" value="23"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1P-2x-kZz" userLabel="Side Camera View">
                                 <rect key="frame" x="0.0" y="135" width="40" height="40"/>
@@ -161,6 +167,12 @@
                                     <constraint firstAttribute="trailing" secondItem="9NL-0i-bzr" secondAttribute="trailing" id="hXe-Zt-DQ1"/>
                                     <constraint firstItem="0jH-qI-O5F" firstAttribute="leading" secondItem="z1P-2x-kZz" secondAttribute="leading" id="xot-31-oUe"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="roundedCorners" value="23"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqX-qw-FUO" userLabel="Side Color View">
                                 <rect key="frame" x="0.0" y="491" width="40" height="40"/>
@@ -221,6 +233,12 @@
                                     <constraint firstAttribute="height" constant="40" id="jN7-31-2KV"/>
                                     <constraint firstItem="gml-NW-94f" firstAttribute="leading" secondItem="CqX-qw-FUO" secondAttribute="leading" id="vhp-lg-aB0"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="roundedCorners" value="23"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="9"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfy-dc-z4U">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

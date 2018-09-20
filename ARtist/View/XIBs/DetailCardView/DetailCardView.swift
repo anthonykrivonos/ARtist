@@ -89,50 +89,15 @@ class DetailCardView: UIView {
         detailTableView.reloadData()
         fileNameLabel.textColor = currentSave != nil ? Color.offWhite : Color.gray
         saveButton.tintColor = currentSave != nil ? Color.offWhite : Color.secondary
-    }
-    
-    //
-    // Save/Load Functions
-    //
-    
-    func save(save:SaveModel) {
-        var storedDrawings:StorageModel? = StorageProvider.get(key: SaveProvider.LOCAL_SAVED_DRAWINGS_KEY, valueType:StorageModel.self) as? StorageModel
-        
-        if storedDrawings == nil {
-            storedDrawings = StorageModel()
+        if canvasController != nil {
+            currentSave = canvasController.currentFile
         }
-        
-        _ = storedDrawings?.save(save: save)
-        
-        _ = StorageProvider.set(key: SaveProvider.LOCAL_SAVED_DRAWINGS_KEY, val: storedDrawings!)
-        
-        storage = storedDrawings!
-        
-        // Load filename and current file
-        canvasController.currentFile = save
-        currentSave = save
-    }
-    
-    func promptSave() {
-        let thumbnail:UIImage = (canvasController.canvasProvider.captureSnapshot(saveToAlbum: false)?.squared)!
-        EntryProvider().showForm(title: "Save File", fields: [EntryFormField(placeholder: "Untitled", textColor: Color.primary, placeholderColor: Color.gray, isSecureText: false, icon: #imageLiteral(resourceName: "Upload Icon.png").resizeWith(width: 25)?.maskWithColor(color: Color.gray))], button: EntryButton(text: "Save", action: { (output:Any?) in
-            if let outputDict = output as? [String:String] {
-                let savedDrawing = SaveModel(fileName: outputDict["Untitled"]!, thumbnail: thumbnail, screenshots: self.currentSave?.getScreenshots() ?? [], drawing: self.canvasController.canvasProvider.drawList, saveDate: Date())
-                self.save(save: savedDrawing)
-            }
-            return
-        }, textColor: Color.primary, backgroundColor: Color.offWhite), position: .center)
-    }
-    
-    func clear() {
-        canvasController.currentFile = SaveModel(fileName: "", thumbnail: UIImage(), screenshots: [], drawing: canvasController.canvasProvider.drawList, saveDate: nil)
-        canvasController.canvasProvider.clear()
     }
     
     // MARK: - IBActions
     
     @IBAction func didTapSaveButton(_ sender: Any) {
-        promptSave()
+        canvasController.promptSave()
     }
     
 }
@@ -172,6 +137,8 @@ extension DetailCardView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "DetailDynamicCell", for: indexPath) as! DetailDynamicCell
+        
+        tableCell.canvasController = canvasController
         
         switch sectionTitles[indexPath.section] {
             case "":

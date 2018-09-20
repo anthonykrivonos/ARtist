@@ -210,6 +210,24 @@ extension UIView {
         }
     }
     
+    /// Round specific corners of a view
+    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+        layer.masksToBounds = true
+        clipsToBounds = true
+    }
+    
+    /// Remove all rounded corners of a view
+    func unroundCorners() {
+        let path = UIBezierPath(rect: self.bounds)
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
+    }
+    
     /// Add UIBlurEffect to UIView
     func addBlurEffect() {
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)

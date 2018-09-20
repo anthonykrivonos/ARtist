@@ -4,7 +4,6 @@ PODS:
   - EzPopup (1.0)
   - fluid-slider (0.0.6):
     - pop
-  - Hero (1.0.1)
   - pop (1.0.10)
   - QuickLayout (2.0.2)
   - SideMenu (3.1.5)
@@ -17,7 +16,6 @@ DEPENDENCIES:
   - ColorSlider
   - EzPopup
   - fluid-slider
-  - Hero
   - SideMenu
   - SwiftEntryKit
   - UIScreenExtension (from `https://github.com/marchv/UIScreenExtension`)
@@ -28,7 +26,6 @@ SPEC REPOS:
     - ColorSlider
     - EzPopup
     - fluid-slider
-    - Hero
     - pop
     - QuickLayout
     - SideMenu
@@ -48,13 +45,12 @@ SPEC CHECKSUMS:
   ColorSlider: 3dc3b5c31b5a74aa1232c44eae06453ce59ecf36
   EzPopup: 8ab951717736197e57b8f9973816fa2601cd59c5
   fluid-slider: 3aeb48bd7f875dc0431963fde12674e69c7c0ed2
-  Hero: cee286821578e170d8c0c9c9cda7897357401112
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   QuickLayout: a730730b646b231fd4ef7cffaeb1e81fe0e1ca92
   SideMenu: 47dbf9e4d878062d8994aed43f6e4bf6c1fea30b
   SwiftEntryKit: 9be06d5a6138acb874223d84de2f42286c0c8d12
   UIScreenExtension: 01da75cfff48e87ff8c9b443c335019641b36eaa
 
-PODFILE CHECKSUM: 9dd7381ea0df5c68d1af6739d821aa109b9d1b3d
+PODFILE CHECKSUM: e6bf9b4787413baf1b38edde9c5ebd8646ce5a07
 
 COCOAPODS: 1.5.3

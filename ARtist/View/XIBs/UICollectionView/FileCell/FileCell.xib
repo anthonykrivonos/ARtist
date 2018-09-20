@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="108" height="158"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eM2-zV-AET">
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eM2-zV-AET">
                         <rect key="frame" x="4" y="4" width="100" height="150"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -93,6 +93,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="fileNameLabel" destination="SGq-bp-wmd" id="kfB-Vc-jjK"/>
+                <outlet property="loadButton" destination="tnT-BB-zly" id="fJ3-b4-CTb"/>
                 <outlet property="overlayView" destination="lXV-mg-GaF" id="bCJ-hg-ynv"/>
                 <outlet property="previewView" destination="eM2-zV-AET" id="D6N-uk-f4P"/>
             </connections>

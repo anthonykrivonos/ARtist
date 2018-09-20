@@ -18,6 +18,9 @@ enum DetailDynamicType {
 
 class DetailDynamicCell: UITableViewCell {
     
+    /// Canvas Controller with drawing
+    var canvasController:CanvasController!
+    
     // MARK: - Constants
     
     private static let COLLECTION_VIEW_WIDTH:CGFloat = 110
@@ -53,7 +56,6 @@ class DetailDynamicCell: UITableViewCell {
                 layout.itemSize = CGSize(width: DetailDynamicCell.COLLECTION_VIEW_WIDTH, height: DetailDynamicCell.COLLECTION_VIEW_HEIGHTS[type]!)
                 layout.scrollDirection = .horizontal
                 layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-                
                 detailCollectionView.setCollectionViewLayout(layout, animated: false)
                 detailCollectionView.delegate = self
                 detailCollectionView.dataSource = self
@@ -101,7 +103,7 @@ extension DetailDynamicCell:UICollectionViewDelegate, UICollectionViewDataSource
         switch type {
             case .largeButtons:
                 // Large Button Section
-                return currentSave != nil ? 3 : 2
+                return currentSave != nil && currentSave!.getSaveDate() != nil ? 3 : 1
             case .statistics:
                 // Statistics Section
                 return 4
@@ -120,23 +122,21 @@ extension DetailDynamicCell:UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        print("Cell for row \(indexPath.row)")
-        
         switch type {
             case .largeButtons:
                 // Large Button Section
                 let largeButtonCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LargeButtonCell", for: indexPath) as! LargeButtonCell
                 if indexPath.row == 0 {
-                    largeButtonCell.initialize(withTitle: "Save", andTextColor: Color.primary, andBackgroundColor: Color.gray, andAction: {
-                        // Save Action
+                    largeButtonCell.initialize(withTitle: "Save As", andTextColor: Color.primary, andBackgroundColor: Color.gray, andAction: {
+                        self.canvasController.promptSave()
                     })
                 } else if indexPath.row == 1 {
-                    largeButtonCell.initialize(withTitle: "Save As", andTextColor: Color.primary, andBackgroundColor: Color.gray, andAction: {
-                        // Save As Action
+                    largeButtonCell.initialize(withTitle: "Save", andTextColor: Color.primary, andBackgroundColor: Color.gray, andAction: {
+                        _ = self.canvasController.save(save: self.canvasController.currentFile!)
                     })
                 } else if indexPath.row == 2 {
                     largeButtonCell.initialize(withTitle: "Delete", andTextColor: Color.offWhite, andBackgroundColor: Color.error, andAction: {
-                        // Delete Action
+                        self.canvasController.delete(file: self.canvasController.currentFile!)
                     })
                 }
                 return largeButtonCell
@@ -146,7 +146,7 @@ extension DetailDynamicCell:UICollectionViewDelegate, UICollectionViewDataSource
                 if indexPath.row == 0 {
                     statisticsCell.initialize(forStatistic: "Strokes", andNumber: (currentSave?.getSavedDrawing().getCount())!)
                 } else if indexPath.row == 1 {
-                    statisticsCell.initialize(forStatistic: "Colors", andNumber: (currentSave?.getSavedDrawing().getColors().count)!)
+                    statisticsCell.initialize(forStatistic: "Colors", andNumber: (currentSave?.getSavedDrawing().getColorCount())!)
                 } else if indexPath.row == 2 {
                     statisticsCell.initialize(forStatistic: "Length (m)", andNumber: Int((CGFloat((currentSave?.getSavedDrawing().getLength())!).toMeters)))
                 } else if indexPath.row == 3 {
@@ -157,17 +157,32 @@ extension DetailDynamicCell:UICollectionViewDelegate, UICollectionViewDataSource
                 // Screenshots Section
                 let screenshotCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScreenshotCell", for: indexPath) as! ScreenshotCell
                 screenshotCell.initialize(withScreenshot: (currentSave?.getScreenshots()[indexPath.row])!)
+                screenshotCell.canvasController = canvasController
                 return screenshotCell
             case .loadRecents:
                 // Load Recents Section
                 let fileCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FileCell", for: indexPath) as! FileCell
                 fileCell.initialize(withFile: (storage?.getStorage()[indexPath.row])!)
+                fileCell.canvasController = canvasController
+                if canvasController.currentFile != nil && canvasController.currentFile!.getFileName() == fileCell.file.getFileName() {
+                    fileCell.previewView.borderColor = .white
+                    fileCell.previewView.borderWidth = 4
+                }
                 return fileCell
             default:
                 break
             
         }
         return UICollectionViewCell()
+    }
+    
+}
+
+// MARK: - UIGestureRecognizer
+extension DetailDynamicCell {
+    
+    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     
 }
