@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </arscnView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNK-Zg-PUr" userLabel="Side Slider View">
-                                <rect key="frame" x="0.0" y="183" width="40" height="300"/>
+                                <rect key="frame" x="0.0" y="183.5" width="40" height="300"/>
                                 <subviews>
                                     <view alpha="0.90000000000000002" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="chw-xj-JUe" userLabel="Gradient Background" customClass="GradientView" customModule="ARtist" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="300"/>
@@ -115,7 +115,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1P-2x-kZz" userLabel="Side Camera View">
-                                <rect key="frame" x="0.0" y="135" width="40" height="40"/>
+                                <rect key="frame" x="0.0" y="135.5" width="40" height="40"/>
                                 <subviews>
                                     <view alpha="0.89999997615814209" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9NL-0i-bzr" userLabel="Gradient Background" customClass="GradientView" customModule="ARtist" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -175,7 +175,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CqX-qw-FUO" userLabel="Side Color View">
-                                <rect key="frame" x="0.0" y="491" width="40" height="40"/>
+                                <rect key="frame" x="0.0" y="491.5" width="40" height="40"/>
                                 <subviews>
                                     <view alpha="0.89999997615814209" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gml-NW-94f" userLabel="Gradient Background" customClass="GradientView" customModule="ARtist" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -240,9 +240,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfy-dc-z4U">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfy-dc-z4U">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.78823529410000004" green="0.79215686269999996" blue="0.85098039219999999" alpha="0.3973335597826087" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0c-jo-0hC" userLabel="Detail Card View" customClass="DetailCardView" customModule="ARtist" customModuleProvider="target">
@@ -255,18 +254,22 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bfy-dc-z4U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="07Z-5D-KfC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u0c-jo-0hC" secondAttribute="trailing" id="2pP-tK-8dS"/>
                             <constraint firstItem="z1P-2x-kZz" firstAttribute="bottom" secondItem="CNK-Zg-PUr" secondAttribute="top" constant="-8" id="3Re-Tg-fDv"/>
-                            <constraint firstItem="OO9-tM-Yf0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="86d-7p-mxc"/>
+                            <constraint firstItem="OO9-tM-Yf0" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="86d-7p-mxc"/>
                             <constraint firstItem="u0c-jo-0hC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="E1d-zI-dir"/>
                             <constraint firstItem="CqX-qw-FUO" firstAttribute="top" secondItem="CNK-Zg-PUr" secondAttribute="bottom" constant="8" id="FH3-Mu-hIX"/>
                             <constraint firstItem="CNK-Zg-PUr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ItZ-T1-1Ph"/>
+                            <constraint firstAttribute="trailing" secondItem="bfy-dc-z4U" secondAttribute="trailing" id="MqH-G9-LuK"/>
                             <constraint firstItem="u0c-jo-0hC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-40" id="P3y-4p-pPt"/>
-                            <constraint firstItem="OO9-tM-Yf0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="QN2-g0-zmX"/>
+                            <constraint firstItem="OO9-tM-Yf0" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="QN2-g0-zmX"/>
                             <constraint firstItem="OO9-tM-Yf0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Yqt-3x-48k"/>
+                            <constraint firstItem="bfy-dc-z4U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="amE-i6-7Nb"/>
                             <constraint firstItem="CNK-Zg-PUr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fPT-0Q-Zoi"/>
-                            <constraint firstItem="OO9-tM-Yf0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iGa-K7-axq"/>
+                            <constraint firstItem="OO9-tM-Yf0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iGa-K7-axq"/>
                             <constraint firstItem="CqX-qw-FUO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oZX-y5-NcV"/>
+                            <constraint firstAttribute="bottom" secondItem="bfy-dc-z4U" secondAttribute="bottom" id="uaJ-2Z-fX8"/>
                             <constraint firstItem="z1P-2x-kZz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vwu-rF-IaN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

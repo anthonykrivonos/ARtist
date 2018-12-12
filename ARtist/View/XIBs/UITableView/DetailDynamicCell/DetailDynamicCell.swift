@@ -100,7 +100,7 @@ extension DetailDynamicCell:UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        switch type {
+        switch type! {
             case .largeButtons:
                 // Large Button Section
                 return currentSave != nil && currentSave!.getSaveDate() != nil ? 3 : 1
@@ -122,7 +122,7 @@ extension DetailDynamicCell:UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        switch type {
+        switch type! {
             case .largeButtons:
                 // Large Button Section
                 let largeButtonCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LargeButtonCell", for: indexPath) as! LargeButtonCell
